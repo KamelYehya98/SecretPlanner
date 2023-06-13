@@ -18,7 +18,7 @@ export const editCommentHelper = async(id, data) => {
 
 export const getCommentsHelper = async() => {
     
-    const comments = await Comments.find().sort({createdAt: 1})
+    const comments = await Comments.find({}).sort([['createdAt', 1]])
     .catch((err) => {
         console.log("error getting messages: ", err);
     })
