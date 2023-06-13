@@ -18,7 +18,7 @@ export const editCommentHelper = async(id, data) => {
 
 export const getCommentsHelper = async() => {
     
-    await Comments.find().sort({createdAt: -1}).execFind(function(err,docs){
+    await Comments.find().sort({createdAt: -1}).exec((err,docs) => {
         if(err){
             console.log("error getting comments: ", err);
         }
