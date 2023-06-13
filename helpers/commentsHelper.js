@@ -18,12 +18,12 @@ export const editCommentHelper = async(id, data) => {
 
 export const getCommentsHelper = async() => {
     
-    await Comments.find().sort({createdAt: -1}).exec((err,docs) => {
-        if(err){
-            console.log("error getting comments: ", err);
-        }
-        return docs;
-    });
+    const comments = await Comments.find().sort({createdAt: -1})
+    .catch((err) => {
+        console.log("error getting messages: ", err);
+    })
+
+    return comments;
 }
 
 export const deleteCommentHelper = async(id) => {
