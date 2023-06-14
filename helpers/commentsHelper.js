@@ -18,7 +18,7 @@ export const editCommentHelper = async(id, data) => {
 
 export const getCommentsHelper = async() => {
     
-    const commentsQuery = Comments.find({}).sort([["createdAt", -1]]);
+    const commentsQuery = Comments.find({}).sort([["createdAt", 1]]);
     commentsQuery.getFilter();
 
     const comments = await commentsQuery.exec();
