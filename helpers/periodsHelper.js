@@ -19,6 +19,10 @@ export const getPeriodsHelper = async() => {
     const len = periods.length - 2;
     
     periods.forEach((period, i) => {
+        
+        period.startDate = moment(period.startDate).format('DD MM yyyy');
+        period.endDate = moment(period.endDate).format('DD MM yyyy');
+
         const periodModel = new PeriodsModel(period);
         if(i <= len){
             result.averageCycle += (new Date(periods[i+1].startDate).getTime() - new Date(periods[i].endDate).getTime()) / parseFloat(1000 * 3600 * 24);
