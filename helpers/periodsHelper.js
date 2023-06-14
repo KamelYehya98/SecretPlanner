@@ -32,10 +32,10 @@ export const getPeriodsHelper = async() => {
 
     var date = new Date(periods[periods.length - 1].endDate);
 
-    date.setDate(date.getDate() + result.averageCycle);
+    date.setDate(date.getDate() + result.averageCycle + 1);
     result.nextStartDate =  moment(date).format('DD MMM yyyy');
 
-    date.setDate(date.getDate() + result.averagePeriod)
+    date.setDate(date.getDate() + result.averagePeriod + 1)
     result.nextEndDate = moment(date).format('DD MMM yyyy');
     
     return result;
